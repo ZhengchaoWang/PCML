@@ -13,4 +13,10 @@ def ridge_regression(y, tx, lamb):
     # INSERT YOUR CODE HERE
     # ridge regression: TODO
     # ***************************************************
-    raise NotImplementedError
+    phi_temp = np.dot(np.transpose(tx),tx)
+    phi_temp = np.linalg.inv(phi_temp+ lamb*2*len(y) * np.eye(np.shape(phi_temp)[0]))
+    phi_temp = np.dot(phi_temp,np.transpose(tx))
+    w = np.dot(phi_temp,y)
+    
+    return w
+    #raise NotImplementedError
